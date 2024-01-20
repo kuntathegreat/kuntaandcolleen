@@ -8,31 +8,44 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 50px;
+            margin: 20px;
         }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-        }
-
         #output {
             margin-top: 20px;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <h1>Number Conversion</h1>
-
-    <label for="inputNumbers">Enter Numbers:</label><br>
-    <textarea id="inputNumbers" placeholder="Enter space-separated numbers"></textarea><br>
-
+    
+    <label for="inputNumbers">Enter Numbers:</label>
+    <input type="text" id="inputNumbers" placeholder="1155 8384 3704 3864 7800 234 4553 4210 1709 1483 1" style="width: 80%;">
     <button onclick="convertNumbers()">Convert</button>
 
     <div id="output"></div>
 
     <script>
         function convertNumbers() {
-            const inputNumbers = document.getElementById('inpu
+            // Get input value
+            var inputNumbers = document.getElementById('inputNumbers').value;
+
+            // Split the input into an array of numbers
+            var numbersArray = inputNumbers.split(' ').map(Number);
+
+            // Extract first 10 numbers
+            var firstTen = numbersArray.slice(0, 10).join(' ');
+
+            // Extract last 10 numbers
+            var lastTen = numbersArray.slice(-10).join(' ');
+
+            // Display the result
+            document.getElementById('output').innerHTML = `
+                <p>KCT1: ${firstTen}</p>
+                <p>KCT2: ${lastTen}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
