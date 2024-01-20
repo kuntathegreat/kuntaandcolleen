@@ -60,7 +60,7 @@
 
     function copyToClipboard() {
       // Select the text area content
-      const result = document.getElementById('result');
+      const result = document.getElementById('result').innerText;
       result.select();
 
       // Copy the selected text to the clipboard
