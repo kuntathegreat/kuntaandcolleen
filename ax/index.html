@@ -3,49 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Conversion</title>
+    <title>Card Conversion Tool</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
+
+        #container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         #output {
             margin-top: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <h1>Number Conversion</h1>
-    
-    <label for="inputNumbers">Enter Numbers:</label>
-    <input type="text" id="inputNumbers" placeholder="1155 8384 3704 3864 7800 234 4553 4210 1709 1483 1" style="width: 80%;">
-    <button onclick="convertNumbers()">Convert</button>
-
+<div id="container">
+    <h2>Card Conversion Tool</h2>
+    <textarea id="inputText" rows="5" cols="50" placeholder="Enter card numbers"></textarea><br>
+    <button onclick="convertCards()">Convert</button>
     <div id="output"></div>
+</div>
 
-    <script>
-        function convertNumbers() {
-            // Get input value
-            var inputNumbers = document.getElementById('inputNumbers').value;
+<script>
+    function convertCards() {
+        var inputText = document.getElementById("inputText").value;
+        var cardNumbers = inputText.split(" ");
+        var output = document.getElementById("output");
 
-            // Split the input into an array of numbers
-            var numbersArray = inputNumbers.split(' ').map(Number);
+        output.innerHTML = "";
 
-            // Extract first 10 numbers
-            var firstTen = numbersArray.slice(0, 10).join(' ');
-
-            // Extract last 10 numbers
-            var lastTen = numbersArray.slice(-10).join(' ');
-
-            // Display the result
-            document.getElementById('output').innerHTML = `
-                <p>KCT1: ${firstTen}</p>
-                <p>KCT2: ${lastTen}</p>
-            `;
-        }
-    </script>
+        cardNumbers.forEach(function (card, index) {
+            output.innerHTML += "KCT" + (index + 1) + ": " + card + "<br>";
+        });
+    }
+</script>
 
 </body>
 </html>
