@@ -40,8 +40,8 @@
   <script>
     function separateDigits() {
       // Get input value and remove white spaces
-      let inputDigits = document.getElementById('inputDigits').value.replace(/\s/g, '');
-      let inputDigits = inputDigits.trim();
+      let inputDigits = document.getElementById('inputDigits').value.replace(/\s/g, '').trim();
+
 
       // Check if the input is exactly 40 digits
       if (inputDigits.length === 40 && /^\d+$/.test(inputDigits)) {
