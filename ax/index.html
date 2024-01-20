@@ -36,6 +36,7 @@
   <button onclick="separateDigits()">Separate</button>
 
   <div id="result"></div>
+  <button onclick="copyToClipboard()">Copy to Clipboard</button>
 
   <script>
     function separateDigits() {
@@ -56,6 +57,14 @@
         document.getElementById('result').innerText = 'Invalid input. Please enter exactly 40 digits.';
       }
     }
+
+    function copyToClipboard() {
+      // Select the text area content
+      const result = document.getElementById('result');
+      result.select();
+
+      // Copy the selected text to the clipboard
+      document.execCommand('copy');
   </script>
 
 </body>
