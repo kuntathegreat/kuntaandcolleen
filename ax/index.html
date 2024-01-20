@@ -3,42 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Converter</title>
+    <title>Number Conversion</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 50px;
+            margin: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
         }
 
         #output {
-            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <h2>Code Converter</h2>
-
-    <label for="inputCode">Enter Code:</label>
-    <textarea id="inputCode" rows="4" cols="50"></textarea>
-
-    <button onclick="convertCode()">Convert</button>
-
+    <h1>Number Conversion</h1>
+    
+    <textarea id="inputNumbers" placeholder="Enter numbers separated by spaces"></textarea>
+    <button onclick="convertNumbers()">Convert</button>
     <div id="output"></div>
 
     <script>
-        function convertCode() {
-            const inputCode = document.getElementById('inputCode').value;
-            const codes = inputCode.split(' ');
+        function convertNumbers() {
+            const inputNumbers = document.getElementById('inputNumbers').value.trim();
 
-            let outputText = '';
+            if (!inputNumbers) {
+                alert('Please enter numbers.');
+                return;
+            }
 
-            codes.forEach((code, index) => {
-                outputText += `code${index + 1}: ${code} `;
+            const numbersArray = inputNumbers.split(/\s+/);
+            let output = '';
+
+            numbersArray.forEach((number, index) => {
+                const key = `KCT${index + 1}`;
+                output += `${key}: ${number}\n`;
             });
 
-            document.getElementById('output').innerText = outputText.trim();
+            document.getElementById('output').innerText = output;
         }
     </script>
 
