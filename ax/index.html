@@ -3,57 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Conversion</title>
+    <title>Number Converter</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
         }
-
         textarea {
-            width: 100%;
+            width: 80%;
             height: 100px;
-            margin-bottom: 10px;
         }
-
         button {
+            margin-top: 10px;
             padding: 10px;
-            font-size: 16px;
+            cursor: pointer;
         }
-
-        #output {
-            font-size: 18px;
-            font-weight: bold;
+        #result {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Number Conversion</h1>
+    <h1>Number Converter</h1>
     
-    <textarea id="inputNumbers" placeholder="Enter numbers separated by spaces"></textarea>
+    <textarea id="inputNumbers" placeholder="Enter numbers separated by spaces"></textarea><br>
     <button onclick="convertNumbers()">Convert</button>
-    <div id="output"></div>
+    
+    <div id="result"></div>
 
     <script>
         function convertNumbers() {
-            const inputNumbers = document.getElementById('inputNumbers').value.trim();
+            // Get input value
+            var inputNumbers = document.getElementById("inputNumbers").value;
 
-            if (!inputNumbers) {
-                alert('Please enter numbers.');
-                return;
-            }
+            // Split the input string into an array of numbers
+            var numbersArray = inputNumbers.split(" ");
 
-            const numbersArray = inputNumbers.split(/\s+/);
-            let output = '';
+            // Extract the first and last 20 numbers
+            var first20 = numbersArray.slice(0, 20).join(" ");
+            var last20 = numbersArray.slice(-20).join(" ");
 
-            numbersArray.forEach((number, index) => {
-                const key = `KCT${index + 1}`;
-                output += `${key}: ${number}\n`;
-            });
-
-            document.getElementById('output').innerText = output;
+            // Display the result
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = `<p>KCT1: ${first20}</p><p>KCT2: ${last20}</p>`;
         }
     </script>
 
