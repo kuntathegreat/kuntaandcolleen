@@ -49,9 +49,16 @@
       if (inputDigits.length === 40 && /^\d+$/.test(inputDigits)) {
         // Separate into first and last 20 digits
         first4Digits = inputDigits.slice(0,4);
-        second4Digits = inputDigits.slice(5,9);
-        third4Digits = inputDigits.slice(10,14);
-        fourth4Digits = inputDigits.slice(15,19);
+        second4Digits = inputDigits.slice(4,8);
+        third4Digits = inputDigits.slice(8,12);
+        fourth4Digits = inputDigits.slice(12,16);
+        fifth4Digits = inputDigits.slice(16,20);
+        six4Digits = inputDigits.slice(20,24);
+        seventh4Digits = inputDigits.slice(24,28);
+        eigth4Digits = inputDigits.slice(28,32);
+        ninth4Digits = inputDigits.slice(32,36);
+        tenth4Digits = inputDigits.slice(36,40009);
+        
         
         // first4Digits = inputDigits.slice(0,4);
         
@@ -60,7 +67,9 @@
         // last20Digits = inputDigits.slice(20);
 
         // Display the result
-        document.getElementById('result').innerText = `KCT1: ${first4Digits} ${second4Digits} ${third4Digits} ${fourth4Digits} \nKCT2: ${last20Digits}`;
+        document.getElementById('result').innerText = `KCT1: ${first4Digits} ${second4Digits} ${third4Digits} ${fourth4Digits} ${fourth4Digits}
+         ${fifth4Digits} \nKCT2:  ${sixth4Digits} ${seventh4Digits} ${eighth4Digits} ${ninth4Digits} ${tenth4Digits}
+`;
       } else {
         // Display an error message if the input is not valid
         document.getElementById('result').innerText = 'Invalid input. Please enter exactly 40 digits.';
@@ -72,7 +81,9 @@
       const textarea = document.createElement('textarea');
 
       // Set the value of the textarea
-      textarea.value = `KCT1: ${first4Digits}\nKCT2: ${last20Digits}`;
+      textarea.value = `KCT1: ${first4Digits} ${second4Digits} ${third4Digits} ${fourth4Digits} ${fourth4Digits}
+         ${fifth4Digits} \nKCT2:  ${sixth4Digits} ${seventh4Digits} ${eighth4Digits} ${ninth4Digits} ${tenth4Digits}
+`;
 
       // Append the textarea to the body
       document.body.appendChild(textarea);
