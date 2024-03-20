@@ -48,11 +48,16 @@
       // Check if the input is exactly 40 digits
       if (inputDigits.length === 40 && /^\d+$/.test(inputDigits)) {
         // Separate into first and last 20 digits
-        first20Digits = inputDigits.slice(0, 20);
-        last20Digits = inputDigits.slice(20);
+        first4Digits = inputDigits.slice(0,4);
+        second4Digits = inputDigits.slice(5,9);
+        // first4Digits = inputDigits.slice(0,4);
+        
+        // first20Digits = inputDigits.slice(0, 20);
+        
+        // last20Digits = inputDigits.slice(20);
 
         // Display the result
-        document.getElementById('result').innerText = `KCT1: ${first20Digits}\nKCT2: ${last20Digits}`;
+        document.getElementById('result').innerText = `KCT1: ${first4Digits}\nKCT2: ${last20Digits}`;
       } else {
         // Display an error message if the input is not valid
         document.getElementById('result').innerText = 'Invalid input. Please enter exactly 40 digits.';
@@ -64,7 +69,7 @@
       const textarea = document.createElement('textarea');
 
       // Set the value of the textarea
-      textarea.value = `KCT1: ${first20Digits}\nKCT2: ${last20Digits}`;
+      textarea.value = `KCT1: ${first4Digits}\nKCT2: ${last20Digits}`;
 
       // Append the textarea to the body
       document.body.appendChild(textarea);
