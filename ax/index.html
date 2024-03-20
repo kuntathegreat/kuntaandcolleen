@@ -50,6 +50,9 @@
         // Separate into first and last 20 digits
         first4Digits = inputDigits.slice(0,4);
         second4Digits = inputDigits.slice(5,9);
+        third4Digits = inputDigits.slice(10,14);
+        fourth4Digits = inputDigits.slice(15,19);
+        
         // first4Digits = inputDigits.slice(0,4);
         
         // first20Digits = inputDigits.slice(0, 20);
@@ -57,7 +60,7 @@
         // last20Digits = inputDigits.slice(20);
 
         // Display the result
-        document.getElementById('result').innerText = `KCT1: ${first4Digits}\nKCT2: ${last20Digits}`;
+        document.getElementById('result').innerText = `KCT1: ${first4Digits} ${second4Digits} ${third4Digits} ${fourth4Digits} \nKCT2: ${last20Digits}`;
       } else {
         // Display an error message if the input is not valid
         document.getElementById('result').innerText = 'Invalid input. Please enter exactly 40 digits.';
